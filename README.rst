@@ -1,5 +1,5 @@
 Stunti_Cache_Backend_Mongo
-============
+==========================
 :Author: Olivier Bregeras <olivier.bregeras@gmail.com>
 
 About
