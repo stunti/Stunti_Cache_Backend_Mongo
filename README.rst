@@ -4,7 +4,7 @@ Stunti_Cache_Backend_Mongo
 
 About
 =====
-**Stunti_Cache_Backend_Mongo** is a `Zend Framework <http://zendframework.com/> Backend for `MongoDB <http://www.mongodb.org/>.
+**Stunti_Cache_Backend_Mongo** is a `Zend Framework <http://zendframework.com/>` Backend for `MongoDB <http://www.mongodb.org/>`.
 It supports tags and autocleaning.
 
 Dependencies
