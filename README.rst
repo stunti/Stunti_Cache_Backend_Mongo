@@ -27,5 +27,5 @@ Credits
 
 License
 =======
-**Stunti_Cache_Backend_Mongo** is licensed under the New BSD License http://stunti.org/license/new-bsd
+**Stunti_Cache_Backend_Mongo** is licensed under the New BSD License
 See *LICENSE* for details.
