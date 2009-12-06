@@ -35,11 +35,12 @@ class Stunti_Cache_Backend_Mongo extends Zend_Cache_Backend implements Zend_Cach
      * Available options
      *
      * =====> (array) servers :
-     * an array of memcached server ; each memcached server is described by an associative array :
-     * 'host' => (string) : the name of the memcached server
-     * 'port' => (int) : the port of the memcached server
-     * 'persistent' => (bool) : use or not persistent connections to this memcached server
-     *
+     * an array of mongodb server ; each mongodb server is described by an associative array :
+     * 'host' => (string) : the name of the mongodb server
+     * 'port' => (int) : the port of the mongodb server
+     * 'persistent' => (bool) : use or not persistent connections to this mongodb server
+     * 'collection' => (string) : name of the collection to use
+     * 'dbname' => (string) : name of the database to use
      *
      * @var array available options
      */
@@ -60,21 +61,9 @@ class Stunti_Cache_Backend_Mongo extends Zend_Cache_Backend implements Zend_Cach
             Zend_Cache::throwException('The MongoDB extension must be loaded for using this backend !');
         }
         parent::__construct($options);
-        if (!array_key_exists('host', $this->_options)) {
-            $this->_options['host'] = self::DEFAULT_HOST;
-        }
-        if (!array_key_exists('port', $this->_options)) {
-            $this->_options['port'] = self::DEFAULT_PORT;
-        }
-        if (!array_key_exists('persistent', $this->_options)) {
-            $this->_options['persistent'] = self::DEFAULT_PERSISTENT;
-        }
-        if (!array_key_exists('dbname', $this->_options)) {
-            $this->_options['dbname'] = self::DEFAULT_DBNAME;
-        }
-        if (!array_key_exists('collection', $this->_options)) {
-            $this->_options['collection'] = self::DEFAULT_COLLECTION;
-        }
+        
+        // Merge the options passed in; overridding any default options
+        $this->_options = array_merge($this->_options, $options);
         
         $this->_conn       = new Mongo($this->_options['host'], $this->_options['port'], $this->_options['persistent']);
         $this->_db         = $this->_conn->selectDB($this->_options['dbname']);
