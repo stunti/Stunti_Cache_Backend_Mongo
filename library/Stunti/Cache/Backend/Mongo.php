@@ -2,12 +2,12 @@
 /**
  * @see Zend_Cache_Backend
  */
-require_once 'Zend/Cache/Backend.php';
+//require_once 'Zend/Cache/Backend.php';
 
 /**
  * @see Zend_Cache_Backend_ExtendedInterface
  */
-require_once 'Zend/Cache/Backend/ExtendedInterface.php';
+//require_once 'Zend/Cache/Backend/ExtendedInterface.php';
 
 /**
  * @author	   Olivier Bregeras (Stunti) (olivier.bregeras@gmail.com)
@@ -346,7 +346,7 @@ class Stunti_Cache_Backend_Mongo extends Zend_Cache_Backend implements Zend_Cach
      * @return int integer between 0 and 100
      */    
     public function getFillingPercentage() {
-        return 0;
+        return 1;
     }
     
     /**
